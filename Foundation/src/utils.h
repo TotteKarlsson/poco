@@ -84,7 +84,7 @@
 
 #if defined(_WIN32) && !defined(__MINGW32__)
 
-typedef signed char int8_t;
+//typedef signed char int8_t;
 typedef unsigned char uint8_t;
 typedef short int16_t;  // NOLINT
 typedef unsigned short uint16_t;  // NOLINT
