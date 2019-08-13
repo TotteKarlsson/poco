@@ -686,7 +686,7 @@ static void splitName(const XML_Char* s, QName& qn)
 	}
 	else
 	{
-		ns.assign(s, 0, p - s);
+		//ns.assign(s, 0, p - s);
 
 		s = p + 1;
 		p = strchr(s, ' ');
@@ -698,7 +698,7 @@ static void splitName(const XML_Char* s, QName& qn)
 		}
 		else
 		{
-			name.assign(s, 0, p - s);
+		  //	name.assign(s, 0, p - s);
 			prefix = p + 1;
 		}
 	}
