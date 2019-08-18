@@ -20,6 +20,9 @@
 
 #include "Poco/Foundation.h"
 #include <float.h>
+#ifndef _MCW_RC // for example Embarcadero's float.h doesn't define it
+#define	_MCW_RC		0x00000300	/* Rounding */
+#endif
 #include <math.h>
 
 #ifndef _SW_INEXACT
@@ -41,10 +44,12 @@
 #	define _SW_DENORMAL 0x00080000 // denormal status bit
 #endif
 
-#define	_RC_CHOP	0x00000300
-#define	_RC_UP		0x00000200
-#define	_RC_DOWN	0x00000100
-#define	_RC_NEAR	0x00000000
+#if defined(__MINGW32__) || defined(__BORLANDC__)
+    #define _RC_CHOP 0x00000300
+    #define _RC_UP 0x00000200
+    #define _RC_DOWN 0x00000100
+    #define _RC_NEAR 0x00000000
+#endif
 
 /* Control word masks for unMask */
 #define	_MCW_EM		0x0008001F	/* Error masks */
